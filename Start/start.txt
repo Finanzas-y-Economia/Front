@@ -1,0 +1,3 @@
+Abres la terminal ctrl+ñ
+cd  .\bank-lite\
+npm run dev
