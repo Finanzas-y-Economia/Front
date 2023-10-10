@@ -13,10 +13,10 @@ import { RouterLink } from 'vue-router';
         <!-- FALTA ADAPTARLO CON PRIMEVUE Y SUS VALIDACIONES-->
       <form>
         <label for="chk" aria-hidden="true">Sign up</label>
-        <input type="text" name="txt" placeholder="User name">
-        <input type="email" name="email" placeholder="Email" >
-        <input type="password" name="pswd" placeholder="Password" >
-     
+        <Pv-InputText type="text" class="inputlg2" name="txt" placeholder="User name"/>
+        <Pv-InputText class="inputlg2" type="email" name="email" placeholder="Email" />
+          <Pv-InputText class="inputlg2" type="password" name="pswd" placeholder="Password"/>
+      
         <button class="custom-button">Sign up</button>
      
       </form>
@@ -25,8 +25,8 @@ import { RouterLink } from 'vue-router';
     <div class="login">
       <form>
         <label for="chk" aria-hidden="true">Login</label>
-        <input type="email" name="email" placeholder="Email" >
-        <input type="password" name="pswd" placeholder="Password">
+        <Pv-InputText  class="inputlg2" type="email" name="email" placeholder="Email"  />
+        <Pv-InputText  class="inputlg2" type="password" name="pswd" placeholder="Password"/>
         <router-link to="/bankhome">
         <button class="custom-button">Sign up</button>
       </router-link>
@@ -83,10 +83,10 @@ import { RouterLink } from 'vue-router';
     cursor: pointer;
     transition: .5s ease-in-out;
   }
-  input {
+  
+
+  .inputlg2 {
     width: 60%;
-    height: 20px;
-    background: #e0dede;
     justify-content: center;
     display: flex;
     margin: 20px auto;
@@ -95,6 +95,7 @@ import { RouterLink } from 'vue-router';
     outline: none;
     border-radius: 5px;
   }
+
   .custom-button {
     width: 60%;
     height: 40px;
@@ -138,3 +139,46 @@ import { RouterLink } from 'vue-router';
 
 
 </style>
+<script>
+
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'; // Importa las funciones de autenticación de Firebase
+
+export default {
+  name: 'LogiN',
+  props: {},
+  data() {
+    return {
+      username: '',
+      password: '',
+      error: '',
+    };
+  },
+  methods: {
+    async login() {
+      // Limpia cualquier mensaje de error anterior
+      this.error = '';
+
+      // Verifica si los campos de usuario y contraseña están completos
+      if (this.username && this.password) {
+        // Obtiene la instancia de autenticación de Firebase
+        const auth = getAuth();
+
+        try {
+          // Intenta autenticar al usuario utilizando el correo electrónico y contraseña
+          await signInWithEmailAndPassword(auth, this.username, this.password);
+
+          // Si la autenticación es exitosa, redirige al usuario a la página /home
+          this.$router.push('/home');
+        } catch (error) {
+          // Si hay un error, muestra un mensaje de error
+          this.error = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
+          console.error('Error de autenticación:', error);
+        }
+      } else {
+        // Si los campos no están completos, muestra un mensaje de error
+        this.error = 'Por favor, completa todos los campos.';
+      }
+    },
+  },
+};
+</script>

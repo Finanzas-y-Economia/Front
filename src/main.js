@@ -18,11 +18,16 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';   // optional
 
+import InputNumber from 'primevue/inputnumber';
 
+
+import Password from 'primevue/password';
 const app = createApp(App)
 
 app.use(router)
 app.use(PrimeVue)
+
+app.component('Pv-Password',Password)
 
 app.component('Pv-Dialog',Dialog);
 app.component('Pv-Button',Button);
@@ -32,4 +37,5 @@ app.component('Pv-InputText',InputText);
 app.component('Pv-DataTable',DataTable);
 app.component('Pv-Column',Column);
 app.component('Pv-ColumnGroup',ColumnGroup);
+app.component('Pv-InputNumber',InputNumber)
 app.mount('#app')

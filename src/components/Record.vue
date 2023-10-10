@@ -14,11 +14,12 @@
       
 
       <Pv-DataTable :value="products" tableStyle="min-width: 50rem">
-            <Pv-Column field="code" header="Code" sortable style="width: 25%"></Pv-Column>
-            <Pv-Column field="name" header="Name" sortable style="width: 25%"></Pv-Column>
-            <Pv-Column field="category" header="Category" sortable style="width: 25%"></Pv-Column>
-            <Pv-Column field="quantity" header="Quantity" sortable style="width: 25%"></Pv-Column>
-        </Pv-DataTable>
+            <Pv-Column field="code" header="Nombre" sortable style="width: 20%"/>
+            <Pv-Column field="name" header="Tasa de Interes" sortable style="width: 20%"/>
+            <Pv-Column field="category" header="Prestamo" sortable style="width: 20%"/>
+            <Pv-Column field="quantity" header="Plazo de pago" sortable style="width: 20%"/>
+            <Pv-Column field="quantity" header="Cuota" sortable style="width: 20%"/>
+          </Pv-DataTable>
 
 </template>
 <script>
