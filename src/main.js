@@ -13,6 +13,12 @@ import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
 import InputSwitch from 'primevue/inputswitch';
 import InputText from 'primevue/inputtext'
+
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';   // optional
+
+
 const app = createApp(App)
 
 app.use(router)
@@ -23,4 +29,7 @@ app.component('Pv-Button',Button);
 app.component('Pv-Card',Card);
 app.component('Pv-InputSwitch',InputSwitch);
 app.component('Pv-InputText',InputText);
+app.component('Pv-DataTable',DataTable);
+app.component('Pv-Column',Column);
+app.component('Pv-ColumnGroup',ColumnGroup);
 app.mount('#app')
