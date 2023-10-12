@@ -1,40 +1,122 @@
+  <template>
+    <div class="toolbar">
+      <RouterLink to="/home">
+        <span class="title">BKL</span>
+      </RouterLink>
+    </div>
+  <!--  <Pv-Message severity="success"  v-if="successMessage" style="width: auto; display: flex;">Success Message Content</Pv-Message>
+    QUIERO QUE APAREZCA UNA NOTIFICACION A LOS USUARIOS SOBRE QUE LA CUENTA FUE REGISTRADA CON EXITO
+  <Pv-Message :life="3000"  >Message Content</Pv-Message> -->
+    <div class="main">
+      <input type="checkbox" id="chk" aria-hidden="true">
+      <div class="signup">
+        <form>
+          <label for="chk" aria-hidden="true">Sign up</label>
+          <div style="text-align: center;  justify-content: center; align-items: center; ">
+        <Pv-InlineMessage style="margin-left: auto; margin-top: -30px;text-align: center; " severity="success" v-if="successMessage">{{ successMessage }}</Pv-InlineMessage>
+      <Pv-InlineMessage style="margin-left: auto; margin-top: -30px; text-align: center;" severity="error" v-if="error">{{ error }}</Pv-InlineMessage>
+  </div>
+          <Pv-InputText class="inputlg2" type="text" v-model="username" placeholder="User name" />
+          <Pv-InputText class="inputlg2" type="email" v-model="email" placeholder="Email" />
+          <Pv-InputText class="inputlg2" type="password" v-model="password" placeholder="Password" />
 
-import { RouterLink } from 'vue-router';
-<template>
-   <div class="toolbar">
-    <RouterLink to="/home">
-          <span class="title">BKL</span>
-        </RouterLink>
+          <button class="custom-button" type="button" @click="msg">Sign up</button>
+        </form>
       </div>
 
-    <div class="main">
-    <input type="checkbox" id="chk" aria-hidden="true">
-    <div class="signup">
-        <!-- FALTA ADAPTARLO CON PRIMEVUE Y SUS VALIDACIONES-->
-      <form>
-        <label for="chk" aria-hidden="true">Sign up</label>
-        <Pv-InputText type="text" class="inputlg2" name="txt" placeholder="User name"/>
-        <Pv-InputText class="inputlg2" type="email" name="email" placeholder="Email" />
-          <Pv-InputText class="inputlg2" type="password" name="pswd" placeholder="Password"/>
-      
-        <button class="custom-button">Sign up</button>
-     
-      </form>
-    </div>
+      <div class="login">
+        <form>
+          <label for="chk" aria-hidden="true">Login</label>
+          <Pv-InputText class="inputlg2" type="email" id="username" v-model="loginEmail" placeholder="Email" />
+          <Pv-InputText class="inputlg2" type="password" id="password" v-model="loginPassword" placeholder="Password" />
 
-    <div class="login">
-      <form>
-        <label for="chk" aria-hidden="true">Login</label>
-        <Pv-InputText  class="inputlg2" type="email" name="email" placeholder="Email"  />
-        <Pv-InputText  class="inputlg2" type="password" name="pswd" placeholder="Password"/>
-        <router-link to="/bankhome">
-        <button class="custom-button">Sign up</button>
-      </router-link>
-      </form>
+          <button class="custom-button" type="button" @click="login">Log in</button>
+          <br>
+          <Pv-InlineMessage style="margin: 10px;" severity="error" v-if="error" >{{ error }}</Pv-InlineMessage>
+        </form>
+      </div>
     </div>
-  </div>
-<!-- HASTA ACA -->
-</template>
+  </template>
+
+<script>
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { collection, addDoc } from 'firebase/firestore';
+import db from '@/firebase/init';
+
+export default {
+  name: 'Auth',
+  data() {
+    return {
+      username: '',
+      password: '',
+      email: '',
+      loginEmail: '',
+      loginPassword: '',
+      error: '',
+      errorMessage: '',
+      successMessage:'',
+    };
+  },
+  methods: {
+    async msg() {
+      this.error = '';
+      if (this.username && this.password && this.email) {
+        const auth = getAuth();
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, this.email, this.password);
+          this.username = '';
+          this.password = '';
+          this.email = '';
+          const user = userCredential.user;
+          const usersCollection = collection(db, 'users');
+          this.successMessage = 'El registro se ha completado exitosamente.';
+          setTimeout(() => {
+            this.successMessage = false;
+          }, 2000);
+          await addDoc(usersCollection, {
+            username: this.username,
+            email: this.email,
+            
+          }); 
+        
+        } catch (error) {
+          this.error = error.message;
+          setTimeout(() => {
+            this.error = false;
+          }, 2000);
+        }
+      } else {
+        this.error = 'Falta llenar';
+        setTimeout(() => {
+          this.error = false;
+        }, 2000);
+      }
+    },
+      async login() {
+        this.error = '';
+        if (this.loginEmail && this.loginPassword) {
+          const auth = getAuth();
+          try {
+            await signInWithEmailAndPassword(auth, this.loginEmail, this.loginPassword);
+            this.$router.push('/bankhome');
+          } catch (error) {
+            this.error = error.message;
+            console.error('Error de autenticación:', error);
+            setTimeout(() => {
+            this.error= false;
+          }, 3000);
+          }
+        } else {
+          this.error = 'Por favor, completa todos los campos.';
+          setTimeout(() => {
+            this.error= false;
+          }, 3000);
+        }
+      },
+    },
+  };
+  </script>
+
 <style>
          @import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
   
@@ -78,7 +160,7 @@ import { RouterLink } from 'vue-router';
     font-size: 2.3em;
     justify-content: center;
     display: flex;
-    margin: 60px;
+    margin: 48px;
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease-in-out;
@@ -139,46 +221,3 @@ import { RouterLink } from 'vue-router';
 
 
 </style>
-<script>
-
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'; // Importa las funciones de autenticación de Firebase
-
-export default {
-  name: 'LogiN',
-  props: {},
-  data() {
-    return {
-      username: '',
-      password: '',
-      error: '',
-    };
-  },
-  methods: {
-    async login() {
-      // Limpia cualquier mensaje de error anterior
-      this.error = '';
-
-      // Verifica si los campos de usuario y contraseña están completos
-      if (this.username && this.password) {
-        // Obtiene la instancia de autenticación de Firebase
-        const auth = getAuth();
-
-        try {
-          // Intenta autenticar al usuario utilizando el correo electrónico y contraseña
-          await signInWithEmailAndPassword(auth, this.username, this.password);
-
-          // Si la autenticación es exitosa, redirige al usuario a la página /home
-          this.$router.push('/home');
-        } catch (error) {
-          // Si hay un error, muestra un mensaje de error
-          this.error = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
-          console.error('Error de autenticación:', error);
-        }
-      } else {
-        // Si los campos no están completos, muestra un mensaje de error
-        this.error = 'Por favor, completa todos los campos.';
-      }
-    },
-  },
-};
-</script>

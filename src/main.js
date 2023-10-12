@@ -17,8 +17,10 @@ import InputText from 'primevue/inputtext'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';   // optional
-
+import Message  from 'primevue/message';
 import InputNumber from 'primevue/inputnumber';
+import InlineMessage from 'primevue/inlinemessage';
+import Slider from 'primevue/slider';
 
 
 import Password from 'primevue/password';
@@ -27,8 +29,8 @@ const app = createApp(App)
 app.use(router)
 app.use(PrimeVue)
 
-app.component('Pv-Password',Password)
-
+app.component('Pv-Password',Password);
+app.component('Pv-InlineMessage',InlineMessage);
 app.component('Pv-Dialog',Dialog);
 app.component('Pv-Button',Button);
 app.component('Pv-Card',Card);
@@ -37,5 +39,7 @@ app.component('Pv-InputText',InputText);
 app.component('Pv-DataTable',DataTable);
 app.component('Pv-Column',Column);
 app.component('Pv-ColumnGroup',ColumnGroup);
-app.component('Pv-InputNumber',InputNumber)
+app.component('Pv-InputNumber',InputNumber);
+app.component('Pv-Message',Message);
+app.component('Pv-Slider',Slider)
 app.mount('#app')

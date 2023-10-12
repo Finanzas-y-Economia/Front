@@ -12,9 +12,9 @@
           </div>
       </div>
 
-      <div class="contentmenu" style="display: flex;">
-  <div class="card flex align-items-center justify-content-center">
-        <Pv-Card style="width: 70vh;margin: 40px;">
+      <div class="contentmenu">
+ 
+        <Pv-Card class="cartdsmenu">
            
             <template #title> Metodo Frances </template>
          
@@ -30,10 +30,9 @@
               </router-link>
             </template>
         </Pv-Card>
-      </div>
+  
 
-      <div class="card flex align-items-center justify-content-center">
-        <Pv-Card style="width: 70vh;margin: 40px;">
+        <Pv-Card class="cartdsmenu">
            
             <template #title> Historial </template>
          
@@ -50,7 +49,7 @@
             </template>
         </Pv-Card>
       </div>
-    </div>
+
 </template>
 <script>
 </script>
@@ -64,6 +63,9 @@
        background-color: #EDF2EF;
        justify-content: center;   
 }
+.contentmenu{
+  display: flex;
+}
 
 .title{
     text-decoration: none;
@@ -73,5 +75,21 @@
       font-weight: bold;
       margin-left: 60px;
   
+}
+.cartdsmenu{
+  width: 70vh;
+  margin: 40px;
+}
+
+@media (max-width:600px) {
+  .contentmenu{
+    display: grid;
+    grid-template-columns: auto;
+   
+  }
+  .cartdsmenu{
+    width: auto;
+    margin-bottom: 10px;
+  }
 }
 </style>

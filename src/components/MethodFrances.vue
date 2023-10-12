@@ -28,11 +28,18 @@
         <h2>¿Cúanto quieres pagar de cuota incial?</h2>
         <Pv-InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" :mode="currencyMode" :currency="currency" />
       </div>
+      <div>
+        <h2>Seleccione el tiempo para el prestramo</h2>
+        <Pv-InputText  v-model.number="value" @input="updateSlider"   disabled   style="margin: 10px;"/>
+        <Pv-Slider v-model="value"   :min="12" :max="36"/>
+      </div>
+
+      
     </template>
 
     <template #footer>
       <router-link to="/methodfrances">
-        <Pv-Button icon="pi pi-check" label="Ingresar" class="button" />
+        <Pv-Button icon="pi pi-check" label="Ingresar" class="button"  />
       </router-link>
     </template>
   </Pv-Card>
@@ -69,7 +76,23 @@ export default {
       currency,
     };
   },
+  data() {
+  return {
+    value: 12
+  }
+},
+methods: {
+    updateSlider() {
+      // Asegúrate de que el valor esté dentro del rango 12-36
+      if (this.value < 12) {
+        this.value = 12;
+      } else if (this.value > 36) {
+        this.value = 36;
+      }
+    },
+  },
 };
+
 </script>
 
 <style>
@@ -80,7 +103,16 @@ export default {
 }
 .cardinfo{
   display: flex;
+  margin: auto;
   width: 70vh;
-  margin: 40px;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+@media (max-width:600px) {
+  .cardinfo{
+    width: 90%;
+  }
 }
 </style>

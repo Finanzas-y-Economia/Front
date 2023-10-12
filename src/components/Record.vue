@@ -22,6 +22,8 @@
           </Pv-DataTable>
 
 </template>
+
+<style></style>
 <script>
 
 //aca debe ir el servicio para almacenar la info de los usuarios :D
