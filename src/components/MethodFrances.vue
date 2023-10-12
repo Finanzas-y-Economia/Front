@@ -22,11 +22,13 @@
       </div>
       <div>
         <h2>Costo del Vehiculo</h2>
-        <Pv-InputNumber v-model="value1" inputId="stacked-buttons" :mode="currencyMode" :currency="currency" />
+        <Pv-InputNumber v-model="value1" inputId="stacked-buttons" :mode="currencyMode" :currency="currency" :locale="locale2"  />
+     
       </div>
       <div>
         <h2>¿Cúanto quieres pagar de cuota incial?</h2>
-        <Pv-InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" :mode="currencyMode" :currency="currency" />
+        <Pv-InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" :mode="currencyMode" :currency="currency"  :locale="locale2" />
+      
       </div>
       <div>
         <h2>Seleccione el tiempo para el prestramo</h2>
@@ -64,14 +66,15 @@ export default {
 
     // Calcula la moneda y el modo de moneda según el valor de checked
     const currencyMode = computed(() => (checked.value ? 'currency' : 'currency'));
-    const currency = computed(() => (checked.value ? 'USD' : 'SOL'));
-
+    const currency = computed(() => (checked.value ? 'USD' : 'PEN'));
+    const locale2= computed(()=>(checked.value ? 'en-US':'es-PE'));
     return {
    
       checked,
       toggleSwitch,
       value1,
       value3,
+      locale2,
       currencyMode,
       currency,
     };
