@@ -13,7 +13,7 @@
 
       <div class="description">
         <div class="content">
-           <span class="subtittle"> Disfruta de la oportunidad de obtener <br>  tu propio auto</span>
+           <span class="subtittle"> Disfruta de la oportunidad de tener <br> tu propio auto</span>
            
         
            <Pv-Button label="Más Información" icon="pi pi-external-link" @click="visible = true"  class="button2" />
