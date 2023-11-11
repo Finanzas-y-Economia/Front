@@ -14,24 +14,24 @@
 
   <Pv-Card class="cardinfo">
     <template #content>
-      <h2> Tipo de Moneda</h2>
+      <h2>Tipo de Moneda:</h2>
       <div class="currency-container" style="align-items: center;">
         <span>Soles</span>
         <Pv-InputSwitch v-model="checked" @change="toggleSwitch" style="margin: 0 10px;" />
         <span>Dólares</span>
       </div>
       <div>
-        <h2>Costo del Vehiculo</h2>
+        <h2>Costo del Vehiculo:</h2>
         <Pv-InputNumber v-model="value1" inputId="stacked-buttons" :mode="currencyMode" :currency="currency" :locale="locale2"  />
      
       </div>
       <div>
-        <h2>¿Cúanto quieres pagar de cuota incial?</h2>
+        <h2>¿Cúanto quieres pagar de cuota inicial?:</h2>
         <Pv-InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" :mode="currencyMode" :currency="currency"  :locale="locale2" />
       
       </div>
       <div>
-        <h2>Seleccione el tiempo para el prestramo</h2>
+        <h2>Seleccione el tiempo para el préstamo:</h2>
         <Pv-InputText  v-model.number="value" @input="updateSlider"   disabled   style="margin: 10px;"/>
         <Pv-Slider v-model="value"   :min="12" :max="36"/>
       </div>
