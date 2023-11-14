@@ -20,8 +20,9 @@
          
             <template #content>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                    quas!
+                    El método francés es una técnica financiera ampliamente utilizada en el ámbito de los préstamos. Este método
+                    se utiliza para calcular cuotas de préstamos y financiamientos, y es particularmente común en hipotecas, 
+                    préstamos personales y deudas a largo plazo.
                 </p>
             </template>
             <template #footer>
