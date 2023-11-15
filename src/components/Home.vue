@@ -18,7 +18,7 @@
         
            <Pv-Button label="Más Información" icon="pi pi-external-link" @click="visible = true"  class="button2" />
 
-                    <Pv-Dialog v-model:visible="visible" header="Header" :style="{ width: '50vw' }">
+                    <Pv-Dialog v-model:visible="visible" header="Banklide" :style="{ width: '50vw' }">
                         <p class="Banklide">
                             BankLide es un nuevo crédito vehicular en Perú que permite la adquisición de cualquier auto. Los montos están 
                             comprendidos entre los S/. 15,000 hasta los S/. 80,000. El plazo de pago se encuentra desde los 36 a 72 meses.   
