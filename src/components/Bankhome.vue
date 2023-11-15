@@ -1,58 +1,47 @@
 <template>
-<div class="toolbar">
-    <router-link to="/home" >
-          <span class="title" >BKL</span>
+    <div class="toolbar">
+        <router-link to="/home" >
+            <span class="title" >BKL</span>
         </router-link>
-          <div class="buttons">
-
+        <div class="buttons">
             <router-link to="/home">
-              <button class="button" >Log out</button>
+                <button class="button" >Log out</button>
             </router-link>
-
-          </div>
-      </div>
-
-      <div class="contentmenu">
- 
+        </div>
+    </div>
+    <div class="contentmenu">
         <Pv-Card class="cartdsmenu">
-           
-            <template #title> Metodo Frances </template>
-         
+            <template #title> Método Frances: </template>
             <template #content>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                    quas!
+                    El método francés es una técnica de amplio uso en el ámbito de los préstamos. Este método
+                    se utiliza para calcular cuotas de préstamos y financiamientos, y es particularmente común en hipotecas, 
+                    préstamos personales y deudas a largo plazo.
                 </p>
             </template>
             <template #footer>
-              <router-link to="/methodfrances">
-                <Pv-Button icon="pi pi-user" label="Ingresar"  class="button"/>
-              </router-link>
+                <router-link to="/methodfrances">
+                    <Pv-Button icon="pi pi-user" label="Ingresar"  class="button"/>
+                </router-link>
             </template>
         </Pv-Card>
-  
-
         <Pv-Card class="cartdsmenu">
-           
-            <template #title> Historial </template>
-         
+            <template #title> Historial: </template>
             <template #content>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                    quas!
+                    Un historial que recapitulo todos los préstamos hechos por nuestra página 
+                    a lo largo de los años de nuestra extensa experiencia al servicio del cliente.
                 </p>
             </template>
             <template #footer>
-              <router-link to="/record">
-                <Pv-Button icon="pi pi-calendar" label="Ingresar"  class="button"/>
-              </router-link>
+                <router-link to="/record">
+                    <Pv-Button icon="pi pi-calendar" label="Ingresar"  class="button"/>
+                </router-link>
             </template>
         </Pv-Card>
-      </div>
+    </div>
 
 </template>
-<script>
-</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
   
@@ -64,7 +53,8 @@
        justify-content: center;   
 }
 .contentmenu{
-  display: flex;
+    display: flex;
+    text-align: justify;
 }
 
 .title{
