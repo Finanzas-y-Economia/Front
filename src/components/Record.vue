@@ -10,10 +10,6 @@
     </div>
   </div>
 
-            <router-link to="/home">
-              <button class="button" >Log out</button>
-            </router-link>
-
 
 
       <Pv-DataTable :value="products" tableStyle="min-width: 50rem">
