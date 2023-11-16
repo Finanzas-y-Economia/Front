@@ -13,15 +13,15 @@
 
       <div class="description">
         <div class="content">
-           <span class="subtittle"> Disfruta de la oportunidad de obtener <br>  tu propio auto</span>
+           <span class="subtittle"> Disfruta de la oportunidad de tener <br> tu propio auto</span>
            
         
            <Pv-Button label="Más Información" icon="pi pi-external-link" @click="visible = true"  class="button2" />
 
-                    <Pv-Dialog v-model:visible="visible" header="BankLite" :style="{ width: '50vw' }">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <Pv-Dialog v-model:visible="visible" header="Banklide" :style="{ width: '50vw' }">
+                        <p class="Banklide">
+                            BankLide es un nuevo crédito vehicular en Perú que permite la adquisición de cualquier auto. Los montos están 
+                            comprendidos entre los S/. 15,000 hasta los S/. 80,000. El plazo de pago se encuentra desde los 36 a 72 meses.   
                         </p>
                     </Pv-Dialog>
 
@@ -228,6 +228,8 @@
     }
 
   }
- 
+ .Banklide{
+    text-align: justify;
+  }
 
   </style>  

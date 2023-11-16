@@ -3,6 +3,8 @@ import { initializeApp } from 'firebase/app';
 import {getFirestore} from 'firebase/firestore';
 
 
+// Tu configuración de Firebase
+
 const firebaseConfig = {
   apiKey: "AIzaSyBtpQ_QlaI8kUyYwBIVMhqNhhrmoiBwbBE",
   authDomain: "finanzas2-dc973.firebaseapp.com",

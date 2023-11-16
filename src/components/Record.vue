@@ -10,15 +10,34 @@
     </div>
   </div>
 
-  <Pv-DataTable :value="products" tableStyle="min-width: 50rem">
-    <Pv-Column field="code" header="Nombre" sortable style="width: 16%" />
-    <Pv-Column field="name" header="Tasa de Interes" sortable style="width: 16%" />
-    <Pv-Column field="name" header="Moneda" sortable style="width: 16%" />
-    <Pv-Column field="category" header="Prestamo" sortable style="width: 16%" />
-    <Pv-Column field="quantity" header="Plazo de pago" sortable style="width: 16%" />
-    <Pv-Column field="quantity" header="Cuota" sortable style="width: 16%" />
-  </Pv-DataTable>
+            <router-link to="/home">
+              <button class="button" >Log out</button>
+            </router-link>
+
+
+
+      <Pv-DataTable :value="products" tableStyle="min-width: 50rem">
+            <Pv-Column field="code" header="Nombre" sortable style="width: 20%"/>
+            <Pv-Column field="name" header="Tasa de Interes" sortable style="width: 20%"/>
+            <Pv-Column field="category" header="Prestamo" sortable style="width: 20%"/>
+            <Pv-Column field="quantity" header="Plazo de pago" sortable style="width: 20%"/>
+            <Pv-Column field="quantity" header="Cuota" sortable style="width: 20%"/>
+          </Pv-DataTable>
+
 </template>
+
+<style></style>
 <script>
+
+//aca debe ir el servicio para almacenar la info de los usuarios :D
+// import { ref, onMounted } from 'vue';
+// import { ProductService } from '@/service/ProductService';
+
+// onMounted(() => {
+//     ProductService.getProductsMini().then((data) => (products.value = data));
+// });
+
+// const products = ref();
+
 
 </script>
