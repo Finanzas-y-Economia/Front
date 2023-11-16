@@ -4,14 +4,15 @@ import {getFirestore} from 'firebase/firestore';
 
 
 // Tu configuración de Firebase
+
 const firebaseConfig = {
-  apiKey: "AIzaSyC5b2TioEkKKRznkPfzUJ73uu3UIj_QGKg",
-  authDomain: "finanzaslogin-66c0f.firebaseapp.com",
-  projectId: "finanzaslogin-66c0f",
-  storageBucket: "finanzaslogin-66c0f.appspot.com",
-  messagingSenderId: "62853900667",
-  appId: "1:62853900667:web:a91bbaa4468c1a8007b5de",
-  measurementId: "G-7YNPZ8E5TE"
+  apiKey: "AIzaSyBtpQ_QlaI8kUyYwBIVMhqNhhrmoiBwbBE",
+  authDomain: "finanzas2-dc973.firebaseapp.com",
+  projectId: "finanzas2-dc973",
+  storageBucket: "finanzas2-dc973.appspot.com",
+  messagingSenderId: "310300658826",
+  appId: "1:310300658826:web:d94fb19e6d00ca33e57173",
+  measurementId: "G-3P8BVWGMYC"
 };
 const firebaseApp = initializeApp(firebaseConfig);
 
