@@ -9,12 +9,10 @@
               <button class="button" >Log out</button>
             </router-link>
 
-<<<<<<< Updated upstream
           </div>
       </div>
 
         <h1 style="margin: 10px;">Metodo Frances </h1>
-=======
   <Pv-Card class="cardinfo">
     <template #content>
       <h2> Tipo de Moneda</h2>
@@ -49,7 +47,6 @@
       </router-link>
     </template>
   </Pv-Card>
->>>>>>> Stashed changes
 
         <Pv-Card class="cardinfo">
            
