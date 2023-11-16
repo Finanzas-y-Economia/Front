@@ -1,14 +1,11 @@
 <template>
-    <div class="toolbar">
-        <router-link to="/home" >
-            <span class="title" >BKL</span>
-        </router-link>
-        <div class="buttons">
-            <router-link to="/home">
-                <button class="button" >Log out</button>
-            </router-link>
-        </div>
-    </div>
+
+  
+<div class="toolbar">
+    <router-link to="/home" >
+          <span class="title" >BKL</span>
+    </router-link>
+</div>
     <div class="contentmenu">
         <Pv-Card class="cartdsmenu">
             <template #title> Método Frances: </template>

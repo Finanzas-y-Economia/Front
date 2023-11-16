@@ -40,8 +40,8 @@
     </template>
 
     <template #footer>
-      <router-link to="/methodfrances">
-        <Pv-Button icon="pi pi-check" label="Ingresar" class="button"  />
+      <router-link to="/credito">
+        <Pv-Button icon="pi pi-check" label="Ingresar" class="botoncito"  />
       </router-link>
     </template>
   </Pv-Card>
