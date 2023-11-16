@@ -4,6 +4,7 @@ import Login from '../components/Login.vue'
 import BankHome from '../components/Bankhome.vue'
 import MethodFrances from '../components/MethodFrances.vue'
 import Record from '../components/Record.vue'
+import Resume from '../components/Resume.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,8 +38,12 @@ const router = createRouter({
       name:'record',
       component: Record,
       path:'/record',
+    },
+    {
+      name:'resume',
+      component: Resume,
+      path:'/credito',
     }
-    
   ]
 })
 

@@ -1,3 +1,5 @@
 Abres la terminal ctrl+ñ
 cd  .\bank-lite\
 npm run dev
+
+no se olviden del npm install :V

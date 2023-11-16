@@ -1,4 +1,6 @@
 <template>
+
+  
 <div class="toolbar">
     <router-link to="/home" >
           <span class="title" >BKL</span>
@@ -12,9 +14,16 @@
           </div>
       </div>
 
+<<<<<<< Updated upstream
       <div class="contentmenu" style="display: flex;">
   <div class="card flex align-items-center justify-content-center">
         <Pv-Card style="width: 70vh;margin: 40px;">
+=======
+      
+      <div class="contentmenu">
+ 
+        <Pv-Card class="cartdsmenu">
+>>>>>>> Stashed changes
            
             <template #title> Metodo Frances </template>
          
