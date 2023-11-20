@@ -88,7 +88,29 @@
         var TEA;
 
      //   var TEA;
+/*      this.TEA = calcularTasa(this.t_tasa_interes, this.p_tasa_interes, this.n_dias_a, this.periodo_capitalizacion);
+      this.TEM = calcularTEM(this.TEA, this.frecuencia_pago, this.n_dias_a);
+      this.n_cuotas_a = this.n_dias_a / this.frecuencia_pago;
+      this.n_total_cuotas = this.plan_plago;
+      this.cuota_inicial_valor = this.precio_activo * (this.p_cuota_inicial / 100);
+      this.cuota_final_valor = this.precio_activo * (this.p_cuota_final / 100);
+      this.monto_prestamo =
+        this.precio_activo - this.cuota_inicial_valor + (this.coste_notarial + this.coste_registral + this.tasacion + this.comision_estudio + this.comision_activacion);
+      this.saldo_financiado = this.monto_prestamo - this.cuota_final_valor / Math.pow(1 + this.TEM / 100, this.n_total_cuotas + 1);
+      this.saldo_financiado = Number(this.saldo_financiado.toFixed(2));
+      this.cuotaR = (-1 * this.saldo_financiado * (this.TEM / 100)) / (1 - Math.pow(1 + this.TEM / 100, -this.n_total_cuotas));
+      this.cuotaR = Number(this.cuotaR.toFixed(2));
+ */
 
+
+
+
+
+
+
+
+
+     
 
       const toggleSwitch = () => {
         checked.true = !checked.false;
@@ -144,18 +166,7 @@
     },
 
     data() {
-      this.TEA = calcularTasa(this.t_tasa_interes, this.p_tasa_interes, this.n_dias_a, this.periodo_capitalizacion);
-      this.TEM = calcularTEM(this.TEA, this.frecuencia_pago, this.n_dias_a);
-      this.n_cuotas_a = this.n_dias_a / this.frecuencia_pago;
-      this.n_total_cuotas = this.plan_plago;
-      this.cuota_inicial_valor = this.precio_activo * (this.p_cuota_inicial / 100);
-      this.cuota_final_valor = this.precio_activo * (this.p_cuota_final / 100);
-      this.monto_prestamo =
-        this.precio_activo - this.cuota_inicial_valor + (this.coste_notarial + this.coste_registral + this.tasacion + this.comision_estudio + this.comision_activacion);
-      this.saldo_financiado = this.monto_prestamo - this.cuota_final_valor / Math.pow(1 + this.TEM / 100, this.n_total_cuotas + 1);
-      this.saldo_financiado = Number(this.saldo_financiado.toFixed(2));
-      this.cuotaR = (-1 * this.saldo_financiado * (this.TEM / 100)) / (1 - Math.pow(1 + this.TEM / 100, -this.n_total_cuotas));
-      this.cuotaR = Number(this.cuotaR.toFixed(2));
+      
     return {
       value: 12
     }
@@ -184,6 +195,8 @@
         resultado = resultado*100;
 
         return Number(resultado.toFixed(7));
+
+        
     },
     
     
