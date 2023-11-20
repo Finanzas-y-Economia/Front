@@ -10,17 +10,15 @@
         </router-link>
       </div>
     </div>
-  </div>
-  
   
     <Pv-DataTable :value="data" tableStyle="min-width: 50rem">
       <Pv-Column field="id" header="Id" sortable style="width: 10%" />
       <Pv-Column field="name" header="Nombre" style="width: 20%" />
-      <Pv-Column field="status" header="Estado" style="width: 20%" />
-      <Pv-Column field="species" header="Especie" style="width: 20%" />
-      <Pv-Column field="gender" header="Género" style="width: 20%" />
+      <Pv-Column field="correo" header="Estado" style="width: 20%" />
+      <Pv-Column field="password" header="Especie" style="width: 20%" />
+      <Pv-Column field="users" header="Género" style="width: 20%" />
     </Pv-DataTable>
-
+  </div>
 </template>
 
 <script>
@@ -29,7 +27,7 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      data: [], // Asegúrate de definir la propiedad 'data' en data
+      data: [],
     };
   },
   mounted() {
@@ -37,13 +35,11 @@ export default {
   },
   methods: {
     fetchData() {
-      axios.get('https://rickandmortyapi.com/api/character')
+      axios.get('http://13.59.215.202:8080/clients')
         .then(response => {
-          // Asigna los datos a la propiedad 'data'
-          this.data = response.data.results;
+          this.data = response.data; // Ajusta según la estructura de tu respuesta
         })
         .catch(error => {
-          // Maneja el error aquí
           console.error('Error al obtener datos de la API', error);
         });
     }
