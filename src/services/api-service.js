@@ -1,8 +1,8 @@
 // En tu archivo api-service.js
 import axios from "axios";
 
-const apiUrl = "http://13.59.215.202:8080/users";
-
+//const apiUrl = "http://13.59.215.202:8080/users";
+const apiUrl ="https://rickandmortyapi.com/api/character";
 export class ApiService {
   async getAll() {
     try {
